@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
+    <PackageReference Include="Hangfire" Version="1.7.19" />
+    <PackageReference Include="Hangfire.Autofac" Version="2.3.1" />
+    <PackageReference Include="Hangfire.MySql.Core" Version="2.2.5" />
+    <PackageReference Include="Hangfire.Redis.StackExchange" Version="1.8.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Win32.Primitives" Version="4.3.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
+    <PackageReference Include="Sentry.AspNetCore" Version="3.0.7" />
+    <PackageReference Include="System.Diagnostics.Tracing" Version="4.3.0" />
+    <PackageReference Include="System.Net.Primitives" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\foundation\foundation.csproj" />
+    <ProjectReference Include="..\prboard.api.data\prboard.api.data.csproj" />
+    <ProjectReference Include="..\prboard.api.domain\prboard.api.domain.csproj" />
+    <ProjectReference Include="..\prboard.api.infrastructure.s3\prboard.api.infrastructure.s3.csproj" />
+    <ProjectReference Include="..\prboard.api.infrastructure.sendgrid\prboard.api.infrastructure.sendgrid.csproj" />
+    <ProjectReference Include="..\prboard.api.infrastructure.stripe\prboard.api.infrastructure.stripe.csproj" />
+  </ItemGroup>
+  
+</Project>
