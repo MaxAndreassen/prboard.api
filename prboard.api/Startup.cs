@@ -18,6 +18,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using prboard.api.data;
 using prboard.api.domain;
+using prboard.api.domain.Connections.Configs;
 using prboard.api.domain.Countries.Mapping;
 using prboard.api.domain.Email.Configuration;
 using prboard.api.domain.Files.Configuration;
@@ -68,6 +69,7 @@ namespace prboard.api
             services.Configure<AwsConfig>(Configuration.GetSection("AWS_Creds"));
             services.Configure<SendGridConfig>(Configuration.GetSection("SendGrid"));
             services.Configure<LinkConfig>(Configuration.GetSection("Link"));
+            services.Configure<GitHubConfig>(Configuration.GetSection("GitHub"));
 
             services.AddHangfire(configuration =>
             {

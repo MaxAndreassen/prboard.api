@@ -4,4 +4,13 @@
         <TargetFramework>netstandard2.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\foundation\foundation.csproj" />
+      <ProjectReference Include="..\prboard.api.domain\prboard.api.domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="RestSharp" Version="106.11.7" />
+    </ItemGroup>
+
 </Project>

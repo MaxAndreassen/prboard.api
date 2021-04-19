@@ -18,6 +18,10 @@ namespace prboard.api.data
         public DbSet<UserTypeEntity> UserTypes { get; set; }
 
         public DbSet<UserTokenEntity> UserTokens { get; set; }
+        
+        public DbSet<UserGitAccountEntity> UserGitAccounts { get; set; }
+        
+        public DbSet<GitAccountSourceEntity> GitAccountSources { get; set; }
 
         public DbSet<UserVerificationRequestEntity> UserVerificationRequests { get; set; }
 
@@ -53,7 +57,9 @@ namespace prboard.api.data
                 .ApplyConfiguration(new TransactionEntityMapping())
                 .ApplyConfiguration(new FileEntityMapping())
                 .ApplyConfiguration(new FileTypeEntityMapping())
-                .ApplyConfiguration(new CountryEntityMapping());
+                .ApplyConfiguration(new CountryEntityMapping())
+                .ApplyConfiguration(new UserGitAccountEntityMapping())
+                .ApplyConfiguration(new GitAccountSourceEntityMapping());
         }
 
         public PrBoardDbContext(DbContextOptions options) : base(options)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using foundation.Entities;
 using prboard.api.data.Countries.Entities;
 using prboard.api.data.Files.Entities;
@@ -30,6 +31,8 @@ namespace prboard.api.data.Users.Entities
         public virtual CountryEntity Country { get; set; }
         
         public virtual UserTypeEntity UserType { get; set; }
+        
+        public virtual IList<UserGitAccountEntity> GitAccounts { get; set; } = new List<UserGitAccountEntity>();
         
         public bool OptedIntoMarketingEmails { get; set; }
         
