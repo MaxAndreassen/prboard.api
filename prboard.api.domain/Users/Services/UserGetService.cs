@@ -31,12 +31,5 @@ namespace prboard.api.domain.Users.Services
 
             return _mapper.Map<T>(entity);
         }
-        
-        public async Task<T> GetByUsernameAsync<T>(string username) where T : UserSummaryAnon
-        {
-            var entity = await _userRepository.FirstOrDefaultAsync(p => p.Username == username);
-
-            return _mapper.Map<T>(entity);
-        }
     }
 }

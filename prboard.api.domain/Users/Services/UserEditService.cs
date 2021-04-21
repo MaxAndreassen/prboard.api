@@ -66,10 +66,7 @@ namespace prboard.api.domain.Users.Services
                 entity.ProfileImage = savedFileEntity;
             }
 
-            entity.Username = editor.Username;
-            entity.FirstName = editor.FirstName;
-            entity.LastName = editor.LastName;
-            entity.CompanyName = editor.CompanyName;
+            entity.Name = editor.Name;
 
             await _workUnit.CommitAsync();
 

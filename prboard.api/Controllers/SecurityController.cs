@@ -88,23 +88,6 @@ namespace prboard.api.Controllers
 
             return Ok();
         }
-        
-        [HttpGet]
-        [Route("username/{username}")]
-        public async Task<IActionResult> GetByUsernameAsync([FromRoute] string username)
-        {
-            var user = await _userGetService.GetByUsernameAsync<UserSummaryPersonal>(username);
-
-            if (user == null)
-                return NotFound();
-
-            var currentUser = await _securityService.GetCurrentUserAsync();
-
-            if (currentUser == null || currentUser.Uuid != user.Uuid)
-                return Ok(_mapper.Map<UserSummaryAnon>(user));
-
-            return Ok(user);
-        }
 
         [HttpGet]
         [Route("{uuid}")]
@@ -182,7 +165,7 @@ namespace prboard.api.Controllers
             if (user == null)
                 return BadRequest();
 
-            var loginResponse = new LoginResponse {Email = user.Email, Username = user.Username, Uuid = user.Uuid};
+            var loginResponse = new LoginResponse {Email = user.Email, Username = user.Name, Uuid = user.Uuid};
 
             var token = await _loginService.GenerateTokenAsync(user.Id);
 

@@ -50,7 +50,7 @@ namespace prboard.api.domain.Users.Services
                 new VerificationEmail
                 {
                     VerifyLink = $"{_linkConfig.VerificationBaseUrl}/{entity.Uuid}",
-                    Name = user.FirstName
+                    Name = user.Name
                 }
             );
 

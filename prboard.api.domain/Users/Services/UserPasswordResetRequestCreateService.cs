@@ -54,7 +54,7 @@ namespace prboard.api.domain.Users.Services
                 "d-cbf12e3c84154f2ebb8485b905536f6c",
                 new PasswordResetEmail
                 {
-                    Name = user.FirstName,
+                    Name = user.Name,
                     Link = $"{_linkConfig.PasswordResetBaseUrl}/{entity.Uuid}",
                 });
         }

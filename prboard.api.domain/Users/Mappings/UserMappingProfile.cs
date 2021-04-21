@@ -14,26 +14,21 @@ namespace prboard.api.domain.Users.Mappings
                 .ForMember(t => t.ProfileImage, a => a.Ignore())
                 .ForMember(t => t.ProfileUrl,
                     a => a.MapFrom(s => preSignedUrlGenerator.GetPreSignedUrl(s.ProfileImage.Url)))
-                .ForMember(t => t.ExistingProfileUuid, a => a.MapFrom(s => s.ProfileImage.Uuid))
-                .ForMember(t => t.IsBusiness,
-                    a => a.MapFrom(s => s.UserType != null && s.UserType.Type == UserType.Business));
+                .ForMember(t => t.ExistingProfileUuid, a => a.MapFrom(s => s.ProfileImage.Uuid));
 
             CreateMap<UserSummaryPersonal, UserSummaryAnon>();
 
             CreateMap<UserEntity, UserSummaryPersonal>()
                 .ForMember(t => t.ProfileUrl,
                     a => a.MapFrom(s => preSignedUrlGenerator.GetPreSignedUrl(s.ProfileImage.Url)))
-                .ForMember(t => t.ExistingProfileUuid, a => a.MapFrom(s => s.ProfileImage.Uuid))
-                .ForMember(t => t.IsBusiness,
-                    a => a.MapFrom(s => s.UserType != null && s.UserType.Type == UserType.Business));
+                .ForMember(t => t.ExistingProfileUuid, a => a.MapFrom(s => s.ProfileImage.Uuid));
 
             CreateMap<UserEntity, UserSummaryAnon>()
                 .ForMember(t => t.ProfileUrl,
                     a => a.MapFrom(s => preSignedUrlGenerator.GetPreSignedUrl(s.ProfileImage.Url)))
-                .ForMember(t => t.ExistingProfileUuid, a => a.MapFrom(s => s.ProfileImage.Uuid))
-                .ForMember(t => t.IsBusiness,
-                    a => a.MapFrom(s => s.UserType != null && s.UserType.Type == UserType.Business));
-            
+                .ForMember(t => t.ExistingProfileUuid, a => a.MapFrom(s => s.ProfileImage.Uuid));
+
+            CreateMap<UserGitAccountEntity, UserGitAccountEntity>();
         }
     }
 }

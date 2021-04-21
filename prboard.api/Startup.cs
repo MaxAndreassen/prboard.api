@@ -26,6 +26,7 @@ using prboard.api.domain.Files.Mappings;
 using prboard.api.domain.PaymentProviders.Configuration;
 using prboard.api.domain.Users.Mappings;
 using prboard.api.Extensions;
+using prboard.api.infrastructure.github.Mappings;
 using prboard.api.infrastructure.s3.Mappings;
 using prboard.api.infrastructure.s3.Services;
 using prboard.api.infrastructure.sendgrid.Mappings;
@@ -156,7 +157,8 @@ namespace prboard.api
             {
                 typeof(S3MappingProfile).Assembly,
                 typeof(StripeMappingProfile).Assembly,
-                typeof(SendGridMappingProfile).Assembly
+                typeof(SendGridMappingProfile).Assembly,
+                typeof(GitHubMappingProfile).Assembly
             };
 
             var entityAssembly = typeof(BaseEntity).Assembly;

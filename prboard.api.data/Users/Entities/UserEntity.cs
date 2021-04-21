@@ -9,20 +9,12 @@ namespace prboard.api.data.Users.Entities
     public class UserEntity : BaseEntity
     {
         private const int BCryptWorkFactor = 8;
-        
-        public string Username { get; set; }
-        
-        public string FirstName { get; set; }
-        
-        public string LastName { get; set; }
-        
-        public string CompanyName { get; set; }
 
         public string Email { get; set; }
+        
+        public string Name { get; set; }
 
         public string PasswordHash { get; set; }
-        
-        public string StripeAccountId { get; set; }
 
         public bool IsEmailVerified { get; set; }
 

@@ -27,6 +27,7 @@
     <ProjectReference Include="..\foundation\foundation.csproj" />
     <ProjectReference Include="..\prboard.api.data\prboard.api.data.csproj" />
     <ProjectReference Include="..\prboard.api.domain\prboard.api.domain.csproj" />
+    <ProjectReference Include="..\prboard.api.infrastructure.github\prboard.api.infrastructure.github.csproj" />
     <ProjectReference Include="..\prboard.api.infrastructure.s3\prboard.api.infrastructure.s3.csproj" />
     <ProjectReference Include="..\prboard.api.infrastructure.sendgrid\prboard.api.infrastructure.sendgrid.csproj" />
     <ProjectReference Include="..\prboard.api.infrastructure.stripe\prboard.api.infrastructure.stripe.csproj" />
