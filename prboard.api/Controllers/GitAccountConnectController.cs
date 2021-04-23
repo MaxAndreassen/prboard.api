@@ -24,6 +24,7 @@ namespace prboard.api.Controllers
         private readonly IUserGitAccountEditService _userGitAccountEditService;
         private readonly IUserGitAccountListService _userGitAccountListService;
         private readonly IGitGetUserServiceFactory _gitGetUserServiceFactory;
+        private readonly IGitListUserReposServiceFactory _gitListUserReposServiceFactory;
         private readonly IWorkUnit _workUnit;
 
         public GitAccountConnectController(
@@ -32,6 +33,7 @@ namespace prboard.api.Controllers
             IUserGitAccountEditService userGitAccountEditService,
             IUserGitAccountListService userGitAccountListService,
             IGitGetUserServiceFactory gitGetUserServiceFactory,
+            IGitListUserReposServiceFactory gitListUserReposServiceFactory,
             IWorkUnit workUnit
             )
         {
@@ -40,7 +42,42 @@ namespace prboard.api.Controllers
             _userGitAccountEditService = userGitAccountEditService;
             _userGitAccountListService = userGitAccountListService;
             _gitGetUserServiceFactory = gitGetUserServiceFactory;
+            _gitListUserReposServiceFactory = gitListUserReposServiceFactory;
             _workUnit = workUnit;
+        }
+        
+        [HttpGet]
+        [Route("repos")]
+        [Authorize(AuthenticationSchemes = Schemes.TokenAuthenticationDefaultScheme)]
+        public async Task<IActionResult> ListRepos()
+        {
+            var user = await _securityService.GetCurrentUserAsync();
+
+            var userGitAccounts = await _userGitAccountListService
+                .ListUserGitAccountsAsync<UserGitAccountEntity>(user.Uuid);
+
+            var gitHubAccounts = userGitAccounts
+                .Where(p => p.GitAccountSource.Type == GitAccountType.GitHub)
+                .ToList();
+
+            var userRepos = new List<GitRepo>();
+
+            foreach (var account in gitHubAccounts)
+            {
+                var getUserService = _gitGetUserServiceFactory.Produce(GitAccountType.GitHub);
+
+                var gitHubUser = await getUserService.GetUserAsync(account.Token);
+                
+                var getUserRepoService = _gitListUserReposServiceFactory.Produce(GitAccountType.GitHub);
+
+                var gitHubRepos = await getUserRepoService.GetRepositoriesForUserAsync(account.Token, gitHubUser.Username);
+                
+                userRepos.AddRange(gitHubRepos);
+            }
+            
+            // Add bitbucket users
+
+            return Ok(userRepos);
         }
 
         [HttpGet]
@@ -85,7 +122,7 @@ namespace prboard.api.Controllers
             var model = new UserGitAccountEditor
             {
                 UserUuid = user.Uuid,
-                AccessToken = accessToken,
+                SourceUserIdentity = accessToken,
                 AccountType = GitAccountType.GitHub
             };
 

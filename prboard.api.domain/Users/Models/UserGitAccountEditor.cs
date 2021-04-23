@@ -11,6 +11,8 @@ namespace prboard.api.domain.Users.Models
         
         public GitAccountType AccountType { get; set; }
         
+        public string SourceUserIdentity { get; set; }
+        
         public string AccessToken { get; set; }
     }
 }

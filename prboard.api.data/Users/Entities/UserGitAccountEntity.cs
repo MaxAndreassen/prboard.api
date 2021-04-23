@@ -8,6 +8,8 @@ namespace prboard.api.data.Users.Entities
         
         public virtual GitAccountSourceEntity GitAccountSource { get; set; }
         
+        public string SourceUserIdentifier { get; set; }
+        
         public string Token { get; set; }
     }
 }
