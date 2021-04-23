@@ -40,8 +40,8 @@ namespace prboard.api.infrastructure.stripe.Services
 
             var options = new SessionCreateOptions
             {
-                SuccessUrl = _linkConfig.PlatformBaseUrl + "success?session_id={CHECKOUT_SESSION_ID}",
-                CancelUrl = _linkConfig.PlatformBaseUrl + "cancelled",
+                SuccessUrl = _linkConfig.PlatformBaseUrl + "plans/success?session_id={CHECKOUT_SESSION_ID}",
+                CancelUrl = _linkConfig.PlatformBaseUrl + "/plans",
                 PaymentMethodTypes = new List<string> {"card"},
                 Mode = "subscription",
                 Customer = user.StripeCustomerId,
