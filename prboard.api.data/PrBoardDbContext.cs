@@ -4,8 +4,7 @@ using prboard.api.data.Countries.Entities;
 using prboard.api.data.Countries.Mappings;
 using prboard.api.data.Files.Entities;
 using prboard.api.data.Files.Mappings;
-using prboard.api.data.Transactions.Entities;
-using prboard.api.data.Transactions.Mappings;
+using prboard.api.data.SubscriptionEvents.Entities;
 using prboard.api.data.Users.Entities;
 using prboard.api.data.Users.Mappings;
 
@@ -29,13 +28,13 @@ namespace prboard.api.data
 
         public DbSet<CountryEntity> Countries { get; set; }
 
-        public DbSet<TransactionEntity> Transactions { get; set; }
-
         public DbSet<FileEntity> Files { get; set; }
 
         public DbSet<FileTypeEntity> FileTypes { get; set; }
 
         public DbSet<UserCreditEntity> UserCredits { get; set; }
+        
+        public DbSet<SubscriptionEventEntity> SubscriptionEvents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -54,7 +53,6 @@ namespace prboard.api.data
                 .ApplyConfiguration(new UserTokenEntityMapping())
                 .ApplyConfiguration(new UserVerificationRequestEntityMapping())
                 .ApplyConfiguration(new UserPasswordResetRequestEntityMapping())
-                .ApplyConfiguration(new TransactionEntityMapping())
                 .ApplyConfiguration(new FileEntityMapping())
                 .ApplyConfiguration(new FileTypeEntityMapping())
                 .ApplyConfiguration(new CountryEntityMapping())

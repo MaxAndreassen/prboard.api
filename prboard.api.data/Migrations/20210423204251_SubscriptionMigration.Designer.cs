@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using prboard.api.data;
 
 namespace prboard.api.data.Migrations
 {
     [DbContext(typeof(PrBoardDbContext))]
-    partial class PrBoardDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210423204251_SubscriptionMigration")]
+    partial class SubscriptionMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

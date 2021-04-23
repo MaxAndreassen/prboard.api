@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using foundation.Configuration;
 using Hangfire;
 using Microsoft.Extensions.Options;
-using prboard.api.domain.Email.Configuration;
 using prboard.api.domain.Email.Contracts;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -40,7 +39,7 @@ namespace prboard.api.infrastructure.sendgrid.Services
         )
         {
             var sendGridMessage = new SendGridMessage();
-            sendGridMessage.SetFrom(sender, "ECompete.io");
+            sendGridMessage.SetFrom(sender, "prboard.io");
             sendGridMessage.AddTo(recipient);
             sendGridMessage.SetTemplateId(templateId);
             sendGridMessage.SetTemplateData(data);

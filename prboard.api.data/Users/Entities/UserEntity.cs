@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using foundation.Entities;
 using prboard.api.data.Countries.Entities;
 using prboard.api.data.Files.Entities;
+using prboard.api.data.SubscriptionEvents.Entities;
 
 namespace prboard.api.data.Users.Entities
 {
@@ -17,6 +18,8 @@ namespace prboard.api.data.Users.Entities
         public string PasswordHash { get; set; }
 
         public bool IsEmailVerified { get; set; }
+        
+        public string StripeCustomerId { get; set; }
 
         public virtual FileEntity ProfileImage { get; set; }
         
@@ -25,6 +28,8 @@ namespace prboard.api.data.Users.Entities
         public virtual UserTypeEntity UserType { get; set; }
         
         public virtual IList<UserGitAccountEntity> GitAccounts { get; set; } = new List<UserGitAccountEntity>();
+        
+        public virtual IList<SubscriptionEventEntity> SubscriptionEvents { get; set; } = new List<SubscriptionEventEntity>();
         
         public bool OptedIntoMarketingEmails { get; set; }
         

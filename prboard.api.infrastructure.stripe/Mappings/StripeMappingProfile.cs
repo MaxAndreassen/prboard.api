@@ -8,9 +8,6 @@ namespace prboard.api.infrastructure.stripe.Mappings
     {
         public StripeMappingProfile()
         {
-            CreateMap<Account, PaymentProviderAccount>();
-
-            CreateMap<PaymentIntent, PaymentProviderPaymentIntent>();
         }
     }
 }

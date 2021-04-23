@@ -3,8 +3,7 @@ using foundation.Configuration;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using prboard.api.domain;
-using prboard.api.domain.Connections.Configs;
-using prboard.api.domain.Connections.Contracts.Services;
+using prboard.api.domain.GitSources.Contracts.Services;
 using prboard.api.infrastructure.github.Models;
 using RestSharp;
 

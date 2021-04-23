@@ -1,5 +1,5 @@
 using AutoMapper;
-using prboard.api.domain.Connections.Models;
+using prboard.api.domain.GitSources.Models;
 using prboard.api.infrastructure.github.Models;
 
 namespace prboard.api.infrastructure.github.Mappings

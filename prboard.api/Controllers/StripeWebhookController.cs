@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using prboard.api.domain.PaymentProviders.Configuration;
+using prboard.api.infrastructure.stripe;
 using prboard.api.infrastructure.stripe.Services.Contracts;
 using Sentry;
 using Stripe;

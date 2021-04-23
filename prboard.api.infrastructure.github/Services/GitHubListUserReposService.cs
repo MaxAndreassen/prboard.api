@@ -4,8 +4,8 @@ using AutoMapper;
 using foundation.Configuration;
 using Newtonsoft.Json;
 using prboard.api.data.Users.Enums;
-using prboard.api.domain.Connections.Contracts.Services;
-using prboard.api.domain.Connections.Models;
+using prboard.api.domain.GitSources.Contracts.Services;
+using prboard.api.domain.GitSources.Models;
 using prboard.api.infrastructure.github.Models;
 using RestSharp;
 
