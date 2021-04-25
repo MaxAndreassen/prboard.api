@@ -27,7 +27,7 @@ namespace prboard.api.infrastructure.github.Services
         {
             var client = new RestClient("https://api.github.com");
             client.AddDefaultHeader("Authorization", "token " + accessToken);
-            var request = new RestRequest("issues", DataFormat.Json);
+            var request = new RestRequest("issues?filter=all", DataFormat.Json);
 
             var response = await client.ExecuteGetAsync(request);
             
