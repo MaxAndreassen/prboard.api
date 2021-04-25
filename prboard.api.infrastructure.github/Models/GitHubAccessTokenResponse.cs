@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace prboard.api.infrastructure.github.Models
 {
-    public class GithubAccessTokenResponse
+    public class GitHubAccessTokenResponse
     {
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }

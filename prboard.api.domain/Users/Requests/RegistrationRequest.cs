@@ -11,5 +11,7 @@ namespace prboard.api.domain.Users.Requests
         public string Password { get; set; }
         
         public string PasswordConfirm { get; set; }
+        
+        public bool SkipVerification { get; set; }
     }
 }
