@@ -44,6 +44,7 @@ namespace prboard.api.domain.Users.Services
             entity.User = user;
             entity.GitAccountSource = gitAccountSource;
             entity.Token = editor.AccessToken;
+            entity.SourceUserIdentifier = editor.SourceUserIdentity;
 
             return _mapper.Map<T>(entity);
         }

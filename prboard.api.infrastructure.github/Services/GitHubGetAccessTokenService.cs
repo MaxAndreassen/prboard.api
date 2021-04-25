@@ -35,7 +35,7 @@ namespace prboard.api.infrastructure.github.Services
 
             var response = await client.ExecutePostAsync(request);
 
-            var token = JsonConvert.DeserializeObject<GithubAccessTokenResponse>(response.Content);
+            var token = JsonConvert.DeserializeObject<GitHubAccessTokenResponse>(response.Content);
 
             return token.AccessToken;
         }

@@ -31,7 +31,7 @@ namespace prboard.api.domain.Users.Services
             _paymentProviderCreateCustomerService = paymentProviderCreateCustomerService;
         }
 
-        public async Task<RegistrationResponse> RegisterAsync(RegistrationRequest request)
+        public async Task<UserEntity> RegisterAsync(RegistrationRequest request)
         {
             var existing = await _userRepository
                 .FirstOrDefaultAsync(p => p.Email == request.Email);
@@ -44,6 +44,7 @@ namespace prboard.api.domain.Users.Services
             entity.Name = request.Name;
             entity.UserType = await _userTypeRepository.FirstOrDefaultAsync(p => p.Type == UserType.Individual);
             entity.OptedIntoMarketingEmails = request.OptedIntoMarketingEmails;
+            entity.IsEmailVerified = request.SkipVerification;
 
             if (!string.IsNullOrEmpty(request.Password))
                 entity.ChangePassword(request.Password);
@@ -54,10 +55,7 @@ namespace prboard.api.domain.Users.Services
             
             await _workUnit.CommitAsync();
 
-            return new RegistrationResponse
-            {
-                Password = request.Password
-            };
+            return entity;
         }
     }
 }
