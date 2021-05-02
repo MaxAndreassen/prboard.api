@@ -4,7 +4,6 @@ using prboard.api.data.Countries.Entities;
 using prboard.api.data.Countries.Mappings;
 using prboard.api.data.Files.Entities;
 using prboard.api.data.Files.Mappings;
-using prboard.api.data.SubscriptionEvents.Entities;
 using prboard.api.data.Users.Entities;
 using prboard.api.data.Users.Mappings;
 
@@ -33,8 +32,6 @@ namespace prboard.api.data
         public DbSet<FileTypeEntity> FileTypes { get; set; }
 
         public DbSet<UserCreditEntity> UserCredits { get; set; }
-        
-        public DbSet<SubscriptionEventEntity> SubscriptionEvents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
